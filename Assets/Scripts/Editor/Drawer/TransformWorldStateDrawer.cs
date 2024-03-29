@@ -3,6 +3,9 @@ using UnityEditor;
 using UnityEngine;
 using static UnityEditor.EditorGUI;
 
+/// <summary>
+/// <see cref="PropertyDrawer"/> for a <see cref="TransformState"/>.
+/// </summary>
 [CustomPropertyDrawer(typeof(TransformState))]
 class TransformStateDrawer : PropertyDrawer
 {

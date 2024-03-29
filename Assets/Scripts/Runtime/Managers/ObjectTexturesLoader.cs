@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Manager component that loads some textures, apply them to a renderer, and notify <see cref="LoadAndFailController"/>.
+/// </summary>
 public class ObjectTexturesLoader : MonoBehaviour
 {
     const int TextAreaMinLines = 1;

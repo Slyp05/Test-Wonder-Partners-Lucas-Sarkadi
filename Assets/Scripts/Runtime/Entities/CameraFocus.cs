@@ -4,6 +4,9 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// Simple component that moves the main <see cref="Camera"/> to ensure that a target is always fully in view.
+/// </summary>
 [RequireComponent(typeof(Camera))]
 [ExecuteInEditMode]
 public class CameraFocus : MonoBehaviour

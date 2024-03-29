@@ -4,7 +4,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Note: Only enable the Horizontal Layout Group in the editor, enabling it at runtime will cause a visual bug (because it will recalculate RectTransform anchored positions during Start).
+/// <summary>
+/// UI component that manages the three <see cref="BottomBarElement"/>.
+/// </summary>
 public class BottomBarController : MonoBehaviour
 {
     [Header("Settings")]
@@ -26,6 +28,9 @@ public class BottomBarController : MonoBehaviour
 
     IReadOnlyDictionary<SelectedElement, BottomBarElement> elements;
 
+    /// <summary>
+    /// Called when the button selection has changed.
+    /// </summary>
     public Action<SelectedElement> OnSelectionChange;
 
     void Awake()

@@ -4,8 +4,14 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
 
+/// <summary>
+/// Lightweight utility to get <see cref="Texture"/> using <see cref="UnityWebRequest"/>.
+/// </summary>
 public static class TextureDownloader
 {
+    /// <summary>
+    /// Try asynchronously to get a <see cref="Texture"/> at the given <paramref name="url"/>.
+    /// </summary>
     public static async Task GetTextureAsync(string url, Action<Texture> onSuccess, Action<string> onError)
     {
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
@@ -24,6 +30,9 @@ public static class TextureDownloader
         }
     }
 
+    /// <summary>
+    /// Try asynchronously to get multiple <see cref="Texture"/> at the given <paramref name="urls"/>.
+    /// </summary>
     public static async Task GetTexturesAsync(string[] urls, Action<Texture[]> onSuccess, Action<string> onError)
     {
         UnityWebRequest[] requests = urls.Select(url => UnityWebRequestTexture.GetTexture(url))

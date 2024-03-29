@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// Component in charge of moving the helmet object depending on the bottom bar selection.
+/// </summary>
 public class HelmetPivot : MonoBehaviour
 {
     [Header("Parameters")]

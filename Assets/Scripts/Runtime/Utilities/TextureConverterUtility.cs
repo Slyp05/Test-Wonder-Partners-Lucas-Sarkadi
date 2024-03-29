@@ -1,7 +1,13 @@
 using UnityEngine;
 
-static class TextureConverterUtility
+/// <summary>
+/// Utility dedicated to converting a <see cref="Texture2D"/> from a format to another.
+/// </summary>
+public static class TextureConverterUtility
 {
+    /// <summary>
+    /// Convert the given <paramref name="metallicRougnessTexture"/> format from (ARGB - R:Metallic, G:Roughness) to (RGBA - R:Metallic, A:Smoothness).
+    /// </summary>
     public static Texture2D ConvertMetallicRougnessFromGLTFToUnityStandard(Texture2D metallicRougnessTexture)
     {
         Texture2D convertedTexture = new Texture2D(metallicRougnessTexture.width, metallicRougnessTexture.height, TextureFormat.RGBA32, false);

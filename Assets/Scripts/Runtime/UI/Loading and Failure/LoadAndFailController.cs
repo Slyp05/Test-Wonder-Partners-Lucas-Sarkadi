@@ -3,6 +3,9 @@ using InspectorAttribute;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// UI controller for the loading and failure screens.
+/// </summary>
 public class LoadAndFailController : MonoBehaviour
 {
     [Header("Settings")]
@@ -67,12 +70,18 @@ public class LoadAndFailController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Call this method to hide the loading screen.
+    /// </summary>
     public void Success()
     {
         Hide(generalGraphics, generalObj);
         Hide(loadingGraphics, loadingObj);
     }
 
+    /// <summary>
+    /// Call this method to display the failure screen.
+    /// </summary>
     public void Failure()
     {
         Hide(loadingGraphics, loadingObj);

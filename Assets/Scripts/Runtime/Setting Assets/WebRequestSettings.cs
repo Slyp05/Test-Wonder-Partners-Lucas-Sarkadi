@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Asset (<see cref="ScriptableObject"/>) that contains common web request settings.
+/// </summary>
 // [CreateAssetMenu(fileName = "Web Request Settings", menuName = "Settings Assets/Web Request Settings")]
 public class WebRequestSettings : ScriptableObject
 {

@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Asset (<see cref="ScriptableObject"/>) that contains common UI settings.
+/// </summary>
 // [CreateAssetMenu(fileName = "UI Settings", menuName = "Settings Assets/UI Settings")]
 public class UISettings : ScriptableObject
 {

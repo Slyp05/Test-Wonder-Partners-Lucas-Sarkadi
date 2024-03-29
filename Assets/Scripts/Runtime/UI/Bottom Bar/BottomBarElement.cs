@@ -5,6 +5,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// UI component that operate a single bottom bar button.
+/// </summary>
 public class BottomBarElement : MonoBehaviour
 {
     static readonly Vector3 ZeroXScale = new Vector3(0, 1, 1);
@@ -25,6 +28,9 @@ public class BottomBarElement : MonoBehaviour
 
     public RectTransform RectTransform { get; private set; }
 
+    /// <summary>
+    /// Called when this button is clicked by the user.
+    /// </summary>
     public event Action OnClick;
 
     void Awake()
@@ -43,6 +49,9 @@ public class BottomBarElement : MonoBehaviour
         OnClick?.Invoke();
     }
 
+    /// <summary>
+    /// Set this button display to the selected state.
+    /// </summary>
     public void Select(bool instant = false)
     {
         button.interactable = false;
@@ -65,6 +74,9 @@ public class BottomBarElement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Set this button display to the NOT selected state.
+    /// </summary>
     public void Unselect(bool instant = false)
     {
         button.interactable = true;
