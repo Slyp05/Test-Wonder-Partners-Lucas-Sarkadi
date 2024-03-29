@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "UI Settings", menuName = "Settings Assets/UI Settings")]
+// [CreateAssetMenu(fileName = "UI Settings", menuName = "Settings Assets/UI Settings")]
 public class UISettings : ScriptableObject
 {
     [field: Header("Colors")]
