@@ -12,4 +12,6 @@ public class UISettings : ScriptableObject
     [field: Header("Timings")]
     [field: SerializeField]
     public float bottomBarElementTweenDuration { get; private set; }
+    [field: SerializeField]
+    public float loadingAndFailureTweenDuration { get; private set; }
 }
