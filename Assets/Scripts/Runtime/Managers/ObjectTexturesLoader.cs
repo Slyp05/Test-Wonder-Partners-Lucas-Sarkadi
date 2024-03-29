@@ -17,7 +17,8 @@ public class ObjectTexturesLoader : MonoBehaviour
     [TextArea(TextAreaMinLines, TextAreaMaxLines)]
     [SerializeField] string occlusionExtraUrl = "Material_MR (Occlusion).png?alt=media&token=91d2e1a6-50e0-4c0d-8bf0-fbf112a50ebc";
     [Space]
-    [SerializeField] Material targetMaterial;
+    [SerializeField] Renderer targetRenderer;
+    [SerializeField] bool convertMetallicRougnessFromGLTFToUnityStandardFormat = true;
     [Header("Settings")]
     [SerializeField] WebRequestSettings settings;
 
@@ -44,11 +45,18 @@ public class ObjectTexturesLoader : MonoBehaviour
 
     void TextureDownloadSuccess(Texture[] textures)
     {
-        StandardShaderUtility.AssignTexture(targetMaterial, StandardShaderTextureType.BaseMap, textures[0]);
-        StandardShaderUtility.AssignTexture(targetMaterial, StandardShaderTextureType.Emissive, textures[1]);
-        StandardShaderUtility.AssignTexture(targetMaterial, StandardShaderTextureType.MetallicRoughness, textures[2]);
-        StandardShaderUtility.AssignTexture(targetMaterial, StandardShaderTextureType.Normal, textures[3]);
-        StandardShaderUtility.AssignTexture(targetMaterial, StandardShaderTextureType.Occlusion, textures[4]);
+        Material newMaterial = new Material(targetRenderer.material);
+
+        if (convertMetallicRougnessFromGLTFToUnityStandardFormat)
+            textures[2] = TextureConverterUtility.ConvertMetallicRougnessFromGLTFToUnityStandard(textures[2] as Texture2D);
+
+        StandardShaderUtility.AssignTexture(newMaterial, StandardShaderTextureType.BaseMap, textures[0]);
+        StandardShaderUtility.AssignTexture(newMaterial, StandardShaderTextureType.Emissive, textures[1]);
+        StandardShaderUtility.AssignTexture(newMaterial, StandardShaderTextureType.MetallicRoughness, textures[2]);
+        StandardShaderUtility.AssignTexture(newMaterial, StandardShaderTextureType.Normal, textures[3]);
+        StandardShaderUtility.AssignTexture(newMaterial, StandardShaderTextureType.Occlusion, textures[4]);
+
+        targetRenderer.material = newMaterial;
 
         loadAndFail.Success();
     }
