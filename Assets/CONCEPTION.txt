@@ -2,7 +2,7 @@ Dans l'ordre chronologique de réalisation :
 
 # PREPARATION
 
-J’ai commencé par télécharger le projet, les ressources (sprites, fonts, etc), et ai hébergé le tout sur GitHub.
+J’ai commencé par télécharger le projet, les ressources (sprites, fonts, etc.), et ai hébergé le tout sur GitHub.
 
 # BOTTOM BAR UI
 
@@ -12,8 +12,8 @@ Je n’ai pas encore beaucoup d’expérience avec UI Elements donc j’ai préf
 En termes d’architecture, j’ai voulu favoriser la maintenabilité et la clarté plutôt que le code reuse.
 Chercher à faire des abstractions réutilisables dans le cadre d’un petit test me paraissait bizarre !
 
-J'ai importé des screenshots de figma dans Unity pour m'assuer que mon UI était conforme. J'ai utilisé le format d'un Iphone XS (9:16) en première réference.
-Le seul gros changement que j'ai fait a été de ne pas décalé les boutons non séléctionnés car ça me paraissant mauvais en termes d'UX.
+J'ai importé des screenshots de figma dans Unity pour m'assurer que mon UI était conforme. J'ai utilisé le format d'un Iphone XS (9:16) en première référence.
+Le seul gros changement que j'ai fait a été de ne pas décaler les boutons non sélectionnés car ça me paraissant mauvais en matière d'UX.
 
 # HELMET ROTATION
 
@@ -22,13 +22,13 @@ J’ai donc créé la classe TransformState permettant de modifier tous les aspe
 
 # LOADING/FAILURE UI
 
-J’ai créé un écran de loading permettant de caché le casque tant qu’il n’est pas texturé.
+J’ai créé un écran de loading permettant de cacher le casque tant qu’il n’est pas texturé.
 J’ai aussi créé un écran d’erreur pour quand la web request n’aboutit pas.
 
 # TEXTURE DOWNLOAD USING WEB REQUEST
 
 Pour les web requests j’ai d’abord cherché du côté de l’API Firebase (https://firebase.google.com/docs/storage/unity/download-files) avant de me rendre compte que c’était super lourd et inutile dans ce cas.
-A la place j’ai créé une classe utilitaire super simple qui utiliser des UnityWebRequest.
+A la place j’ai créé une classe utilitaire simple qui utilise des UnityWebRequest.
 Pour pouvoir éviter d’utiliser des coroutines, j’ai créé une classe d’extension qui permet à la place d’utiliser des méthodes asynchrones.
 
 # APPLYING TEXTURES TO THE HELMET
@@ -38,10 +38,10 @@ Au début je modifiais le material du casque directement, mais ça provoquait pl
 
 # TEXTURE CHANNELS CONVERSION
 
-Après m’être renseigné sur les couleurs utilisés par le standard shader sur unity et gLTF 2.0, j’ai créé une classe dédiée à la conversion de textures d’un format à un autre.
+Après m’être renseigné sur les couleurs utilisées par le standard shader sur unity et gLTF 2.0, j’ai créé une classe dédiée à la conversion de textures d’un format à un autre.
 J’ai dû faire quelques tests pour réaliser que :
 * le format gLTF est en ARGB, pas en RGBA
-* il ne fallait PAS inverser la valeur de roughness pour en faire une valeur de smoothness (pas sur de pourquoi)
+* il ne fallait PAS inverser la valeur de roughness pour en faire une valeur de smoothness (pas sûr de pourquoi)
 
 # ADAPT TO SCREEN SIZE
 
