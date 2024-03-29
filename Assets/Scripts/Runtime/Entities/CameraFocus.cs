@@ -30,7 +30,10 @@ public class CameraFocus : MonoBehaviour
     [Tooltip("When should we refresh the camera position to account for screen format or object position changes.")]
     [SerializeField] RefreshMode refreshMode = RefreshMode.OnStart;
 
-    new Camera camera;
+#if UNITY_EDITOR
+    new
+#endif
+        Camera camera;
 
     void Awake()
     {
