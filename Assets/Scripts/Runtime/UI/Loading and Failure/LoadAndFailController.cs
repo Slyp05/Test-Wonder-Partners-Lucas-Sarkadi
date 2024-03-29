@@ -8,17 +8,23 @@ public class LoadAndFailController : MonoBehaviour
     [Header("Settings")]
     [SerializeField] UISettings settings;
     [Header("References")]
+    [Tooltip("UI graphical elements always displayed when loading or on failure.")]
     [ConditionalHide(HideCondition.IsPlaying, HideType.Readonly)]
     [SerializeField] Graphic[] generalGraphics;
+    [Tooltip("UI graphical elements displayed only when loading.")]
     [ConditionalHide(HideCondition.IsPlaying, HideType.Readonly)]
     [SerializeField] Graphic[] loadingGraphics;
+    [Tooltip("UI graphical elements displayed only on failure.")]
     [ConditionalHide(HideCondition.IsPlaying, HideType.Readonly)]
     [SerializeField] Graphic[] failureGraphics;
     [Space]
+    [Tooltip("GameObject enabled when loading or on failure.")]
     [ConditionalHide(HideCondition.IsPlaying, HideType.Readonly)]
     [SerializeField] GameObject generalObj;
+    [Tooltip("GameObject enabled only when loading.")]
     [ConditionalHide(HideCondition.IsPlaying, HideType.Readonly)]
     [SerializeField] GameObject loadingObj;
+    [Tooltip("GameObject enabled only on failure.")]
     [ConditionalHide(HideCondition.IsPlaying, HideType.Readonly)]
     [SerializeField] GameObject failureObj;
 

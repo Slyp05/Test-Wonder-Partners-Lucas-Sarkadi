@@ -12,8 +12,10 @@ public class BottomBarElement : MonoBehaviour
     [Header("Settings")]
     [SerializeField] UISettings settings;
     [Header("References")]
+    [Tooltip("Child icon Image component.")]
     [ConditionalHide(HideCondition.IsPlaying, HideType.Readonly)]
     [SerializeField] Image icon;
+    [Tooltip("Child text TextMeshProUGUI component.")]
     [ConditionalHide(HideCondition.IsPlaying, HideType.Readonly)]
     [SerializeField] TextMeshProUGUI text;
 

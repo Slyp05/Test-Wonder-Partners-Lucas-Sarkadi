@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ConstantRotate2D : MonoBehaviour
 {
-    [SerializeField, Tooltip("Rotation speed in degrees per seconds.")] float rotationSpeed;
+    [SerializeField, Tooltip("Rotation speed in degrees per seconds, can be nagative.")] float rotationSpeed;
 
     new Transform transform;
 

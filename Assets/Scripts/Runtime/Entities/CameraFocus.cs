@@ -20,8 +20,11 @@ public class CameraFocus : MonoBehaviour
         All             = ~0,
     }
 
+    [Tooltip("Target renderer to focus.")]
     [SerializeField] Renderer target;
+    [Tooltip("Extra space ratio to have around the focused object.")]
     [SerializeField] float marginRatio = 1.1f;
+    [Tooltip("When should we refresh the camera position to account for screen format or object position changes.")]
     [SerializeField] RefreshMode refreshMode = RefreshMode.OnStart;
 
     new Camera camera;

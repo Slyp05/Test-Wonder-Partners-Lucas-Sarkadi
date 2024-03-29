@@ -4,10 +4,13 @@ using UnityEngine;
 public class HelmetPivot : MonoBehaviour
 {
     [Header("Parameters")]
+    [Tooltip("Values that will be applied to the Transform when selecting the left button.")]
     [SerializeField] TransformState leftTransformState;
     [Space]
+    [Tooltip("Values that will be applied to the Transform when selecting the front button.")]
     [SerializeField] TransformState frontTransformState;
     [Space]
+    [Tooltip("Values that will be applied to the Transform when selecting the right button.")]
     [SerializeField] TransformState rightTransformState;
     [Space]
     [SerializeField] float tweenDuration = 1f;

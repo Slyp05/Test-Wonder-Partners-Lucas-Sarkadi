@@ -10,13 +10,17 @@ public class BottomBarController : MonoBehaviour
     [Header("Settings")]
     [SerializeField] UISettings settings;
     [Header("References")]
+    [Tooltip("Child BottomBarElement for the left button.")]
     [ConditionalHide(HideCondition.IsPlaying, HideType.Readonly)]
     [SerializeField] BottomBarElement left;
+    [Tooltip("Child BottomBarElement for the front button.")]
     [ConditionalHide(HideCondition.IsPlaying, HideType.Readonly)]
     [SerializeField] BottomBarElement front;
+    [Tooltip("Child BottomBarElement for the right button.")]
     [ConditionalHide(HideCondition.IsPlaying, HideType.Readonly)]
     [SerializeField] BottomBarElement right;
     [Space]
+    [Tooltip("Background RectTransform that we will move behind the selected button.")]
     [ConditionalHide(HideCondition.IsPlaying, HideType.Readonly)]
     [SerializeField] RectTransform selectedBackground;
 
