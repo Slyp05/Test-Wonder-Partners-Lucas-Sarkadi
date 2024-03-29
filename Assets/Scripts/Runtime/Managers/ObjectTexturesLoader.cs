@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
-using UnityEngine.UI;
 
-public class HelmetTexturesLoader : MonoBehaviour
+public class ObjectTexturesLoader : MonoBehaviour
 {
     const int TextAreaMinLines = 1;
     const int TextAreaMaxLines = 10;
@@ -20,6 +16,8 @@ public class HelmetTexturesLoader : MonoBehaviour
     [SerializeField] string normalExtraUrl = "Material_MR (Normal).png?alt=media&token=4450b7d1-9a16-4143-8007-2ea1ee6c351e";
     [TextArea(TextAreaMinLines, TextAreaMaxLines)]
     [SerializeField] string occlusionExtraUrl = "Material_MR (Occlusion).png?alt=media&token=91d2e1a6-50e0-4c0d-8bf0-fbf112a50ebc";
+    [Space]
+    [SerializeField] Material targetMaterial;
     [Header("Settings")]
     [SerializeField] WebRequestSettings settings;
 
@@ -46,7 +44,11 @@ public class HelmetTexturesLoader : MonoBehaviour
 
     void TextureDownloadSuccess(Texture[] textures)
     {
-        //// apply to helmet
+        StandardShaderUtility.AssignTexture(targetMaterial, StandardShaderTextureType.BaseMap, textures[0]);
+        StandardShaderUtility.AssignTexture(targetMaterial, StandardShaderTextureType.Emissive, textures[1]);
+        StandardShaderUtility.AssignTexture(targetMaterial, StandardShaderTextureType.MetallicRoughness, textures[2]);
+        StandardShaderUtility.AssignTexture(targetMaterial, StandardShaderTextureType.Normal, textures[3]);
+        StandardShaderUtility.AssignTexture(targetMaterial, StandardShaderTextureType.Occlusion, textures[4]);
 
         loadAndFail.Success();
     }
