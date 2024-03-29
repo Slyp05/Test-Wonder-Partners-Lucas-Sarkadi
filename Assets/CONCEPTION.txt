@@ -1,0 +1,55 @@
+Dans l'ordre chronologique de réalisation :
+
+# PREPARATION
+
+J’ai commencé par télécharger le projet, les ressources (sprites, fonts, etc), et ai hébergé le tout sur GitHub.
+
+# BOTTOM BAR UI
+
+J’ai utilisé des technos avec lesquels je suis à l’aise : DOTween pour l’animation, et les components UI basiques de Unity.
+Je n’ai pas encore beaucoup d’expérience avec UI Elements donc j’ai préféré éviter.
+
+En termes d’architecture, j’ai voulu favoriser la maintenabilité et la clarté plutôt que le code reuse.
+Chercher à faire des abstractions réutilisables dans le cadre d’un petit test me paraissait bizarre !
+
+# HELMET ROTATION
+
+Pour la rotation du casque, j’ai d’abord fait un component super simple avec 3 valeurs de rotation (-90, 0, 90) avant de me rendre compte que le casque était plus long que large ce qui le faisait sortir du champ.
+J’ai donc créé la classe TransformState permettant de modifier tous les aspects de la Transform, avec un script éditeur associé pour éditer ses valeurs facilement.
+
+# LOADING/FAILURE UI
+
+J’ai créé un écran de loading permettant de caché le casque tant qu’il n’est pas texturé.
+J’ai aussi créé un écran d’erreur pour quand la web request n’aboutit pas.
+
+# TEXTURE DOWNLOAD USING WEB REQUEST
+
+Pour les web requests j’ai d’abord cherché du côté de l’API Firebase (https://firebase.google.com/docs/storage/unity/download-files) avant de me rendre compte que c’était super lourd et inutile dans ce cas.
+A la place j’ai créé une classe utilitaire super simple qui utiliser des UnityWebRequest.
+Pour pouvoir éviter d’utiliser des coroutines, j’ai créé une classe d’extension qui permet à la place d’utiliser des méthodes asynchrones.
+
+# APPLYING TEXTURES TO THE HELMET
+
+Pour appliquer les textures au casque, j’ai créé une classe utilitaire qui applique une texture à un material dans le slot donné par une enum.
+Au début je modifiais le material du casque directement, mais ça provoquait plusieurs problèmes. J’ai corrigé ça en utilisant à la place une copie du material générée pendant le runtime.
+
+# TEXTURE CHANNELS CONVERSION
+
+Après m’être renseigné sur les couleurs utilisés par le standard shader sur unity et gLTF 2.0, j’ai créé une classe dédiée à la conversion de textures d’un format à un autre.
+J’ai dû faire quelques tests pour réaliser que :
+* le format gLTF est en ARGB, pas en RGBA
+* il ne fallait PAS inverser la valeur de roughness pour en faire une valeur de smoothness (pas sur de pourquoi)
+
+# ADAPT TO SCREEN SIZE
+
+Selon la taille de l’écran utilisé, le casque finissait potentiellement en partie caché.
+Pour régler ce problème, j’ai adapté du code trouvé ici : https://forum.unity.com/threads/fit-object-exactly-into-perspective-cameras-field-of-view-focus-the-object.496472/
+
+# VISUAL POLISH
+
+J’ai rajouté un 3 points light system pour améliorer le rendu visuel.
+
+# CODE POLISH
+
+J’ai ensuite rajouté des explications à mon code pour simuler ce que je ferais pour du travail en équipe.
+Des attributs tooltips à tous les membres sérialisés, et des summaries (commentaires XML) à tous les types/membres publics.
