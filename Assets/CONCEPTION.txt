@@ -12,6 +12,9 @@ Je n’ai pas encore beaucoup d’expérience avec UI Elements donc j’ai préf
 En termes d’architecture, j’ai voulu favoriser la maintenabilité et la clarté plutôt que le code reuse.
 Chercher à faire des abstractions réutilisables dans le cadre d’un petit test me paraissait bizarre !
 
+J'ai importé des screenshots de figma dans Unity pour m'assuer que mon UI était conforme. J'ai utilisé le format d'un Iphone XS (9:16) en première réference.
+Le seul gros changement que j'ai fait a été de ne pas décalé les boutons non séléctionnés car ça me paraissant mauvais en termes d'UX.
+
 # HELMET ROTATION
 
 Pour la rotation du casque, j’ai d’abord fait un component super simple avec 3 valeurs de rotation (-90, 0, 90) avant de me rendre compte que le casque était plus long que large ce qui le faisait sortir du champ.
