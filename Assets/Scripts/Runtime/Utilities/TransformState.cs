@@ -16,7 +16,7 @@ public class TransformState
     public void ApplyToTransform(Transform target, float duration)
     {
         target.DOLocalMove(position, duration);
-        target.DOLocalRotate(eulerAngles, duration, RotateMode.FastBeyond360);
+        target.DOLocalRotate(eulerAngles, duration, RotateMode.Fast);
         target.DOScale(scale, duration);
     }
 
