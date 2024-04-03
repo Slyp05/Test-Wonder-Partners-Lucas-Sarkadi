@@ -1,8 +1,10 @@
 using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Networking;
+using Debug = UnityEngine.Debug;
 
 /// <summary>
 /// Lightweight utility to get <see cref="Texture"/> using <see cref="UnityWebRequest"/>.
@@ -41,8 +43,16 @@ public static class TextureDownloader
         UnityWebRequestAsyncOperation[] asyncOperations = requests.Select(r => r.SendWebRequest())
                                                                   .ToArray();
 
+        Stopwatch sw = new Stopwatch();
+        int counter = 0;
         foreach (AsyncOperation operation in asyncOperations)
+        {
+            sw.Restart();
             await operation;
+            sw.Stop();
+
+            Debug.Log($"{++counter}: {sw.Elapsed.TotalSeconds}");
+        }
 
         UnityWebRequest failedRequest = requests.Where(r => r.result != UnityWebRequest.Result.Success)
                                                 .FirstOrDefault();

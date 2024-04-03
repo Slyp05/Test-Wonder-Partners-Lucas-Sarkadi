@@ -17,12 +17,12 @@ public static class TextureConverterUtility
 
         for (int i = 0; i < originalPixels.Length; i++)
         {
-            byte metallic = originalPixels[i].g;
-            byte roughness = originalPixels[i].b;
+            byte metallic = originalPixels[i].b;
+            byte roughness = originalPixels[i].g;
 
-            // byte smoothness = (byte)(byte.MaxValue - roughness);
+            byte smoothness = (byte)(byte.MaxValue - roughness);
 
-            convertedPixels[i] = new Color32(metallic, 0, 0, roughness);
+            convertedPixels[i] = new Color32(metallic, 0, 0, smoothness);
         }
 
         convertedTexture.SetPixels32(convertedPixels);
